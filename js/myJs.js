@@ -140,9 +140,9 @@ $(document).ready(function () {
           title: textConfig.text10,
           text: textConfig.text11,
           confirmButtonColor: "#83d0c9",
-          // onClose: () => {
-          //   window.location = "https://fb.com/tranhieu1609";
-          // },
+          onClose: () => {
+            window.location = "https://fb.com/tranhieu1609";
+          },
         });
       }
     });
@@ -151,10 +151,12 @@ $(document).ready(function () {
       let inputValue = $("#txtReason").val();
       if(inputValue) {
         $('.confirm-text.swal2-confirm').attr("disabled", false);
+      } else {
+        $('.confirm-text.swal2-confirm').attr("disabled", true);
       }
     }
     $('.confirm-text.swal2-confirm').attr("disabled", true);
-    Observer(function(){
+    setInterval(function(){
       checkEmpty();
     }, 10);
     
