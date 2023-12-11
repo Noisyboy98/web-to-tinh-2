@@ -37,6 +37,9 @@
 .swal2-popup {
   border-radius: 15px !important;
 }
+.pink-color {
+  background-color: #F7B3CD ;
+}
 
 header h2 {
   font-family: 'Pacifico';

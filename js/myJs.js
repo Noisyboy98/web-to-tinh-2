@@ -1,17 +1,19 @@
 const textConfig = {
-  text1: "He luu em!",
-  text2: "Anh có điều này muốn hỏi em nhớ phải trả lời thật lòng nhaaa ^^",
-  text3: "Em yêu anh có phải không nào ._.",
-  text4: "Nếu em ko trả lời mà thoát ra tức là muốn làm vợ anh rùi đó nha :v",
-  text5: "Anh mơ à???",
-  text6: "Yêu ơi là yêu <3",
-  text7: "Lí do em thích anh đi :vvvv",
-  text8: "Gửi cho anh <3",
-  text9: "Vì anh đẹp try vlllll luôn á !!!!",
-  text10: "Anh biết mà ^^ Yêu em 300.000",
+  text1: "Heluu Thảo!",
+  text2: "Tớ có điều này muốn hỏi cậu, nhớ phải trả lời thật lòng nhaaa ^^",
+  text3: "Cậu yêu tớ có phải không nào ._.",
+  text4: "Nếu cậu ko trả lời mà thoát ra tức là muốn làm vợ tớ rùi đó nha :3",
+  text5: "Cậu mơ à???",
+  text6: "Yêu ơi là yêuuuuuu <3",
+  text7: "Cậu nói lí do cậu thích tớ đi hehe",
+  text8: "Gửi cho tớ nào <3",
+  text9: "Vì Hiếu đẹp try vlllll luôn á !!!!",
+  text10: "Tớ biết mà ^^ Yêu cậu 300.000",
   text11:
-    "Bây giờ thì chờ gì nữa mà ko inbox cho anh đi nàooo",
+    "Bây giờ thì chờ gì nữa mà ko inbox cho tớ đi nàooo",
   text12: "Okii lunn <3",
+  text13: "Bấm vào để đọc thư nhé !!!",
+  text14: "Nghĩ sao tớ cho cậu để trống =))",
 };
 
 $(document).ready(function () {
@@ -29,15 +31,16 @@ $(document).ready(function () {
   $("#text4").html(textConfig.text4);
   $("#no").html(textConfig.text5);
   $("#yes").html(textConfig.text6);
+  $("#letter").html(textConfig.text13);
 
   function firstQuestion() {
     $(".content").hide();
     Swal.fire({
       title: textConfig.text1,
       text: textConfig.text2,
-      imageUrl: "img/cuteCat.jpg",
-      imageWidth: 300,
-      imageHeight: 300,
+      imageUrl: "img/phuongthao.gif",
+      imageWidth: 250,
+      imageHeight: 400,
       background: '#fff url("img/iput-bg.jpg")',
       imageAlt: "Custom image",
     }).then(function () {
@@ -114,11 +117,10 @@ $(document).ready(function () {
       html: true,
       width: 900,
       padding: "3em",
-      html: "<input type='text' class='form-control' id='txtReason'  placeholder='Whyyy'>",
+      html: "<input type='text' autofocus required class='form-control' id='txtReason'  placeholder='Whyyy'>",
       background: '#fff url("img/iput-bg.jpg")',
       backdrop: `
                     rgba(0,0,123,0.4)
-                    url("img/giphy2.gif")
                     left top
                     no-repeat
                   `,
@@ -126,6 +128,7 @@ $(document).ready(function () {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonColor: "#fe8a71",
+      confirmButtonClass: "confirm-text",
       cancelButtonColor: "#f6cd61",
       confirmButtonText: textConfig.text8,
     }).then((result) => {
@@ -137,13 +140,24 @@ $(document).ready(function () {
           title: textConfig.text10,
           text: textConfig.text11,
           confirmButtonColor: "#83d0c9",
-          onClose: () => {
-            window.location = "https://fb.com/tranhieu1609";
-          },
+          // onClose: () => {
+          //   window.location = "https://fb.com/tranhieu1609";
+          // },
         });
       }
     });
 
+    function checkEmpty() {
+      let inputValue = $("#txtReason").val();
+      if(inputValue) {
+        $('.confirm-text.swal2-confirm').attr("disabled", false);
+      }
+    }
+    $('.confirm-text.swal2-confirm').attr("disabled", true);
+    Observer(function(){
+      checkEmpty();
+    }, 10);
+    
     $("#txtReason").focus(function () {
       var handleWriteText = setInterval(function () {
         textGenerate();
