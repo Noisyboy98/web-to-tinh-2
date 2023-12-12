@@ -13,7 +13,7 @@ const textConfig = {
   text12: "Okii lunn <3",
   text13: "Không mơ được thì bấm vào đây =))",
   text14: "Tớ có điều muốn nói !",
-  text15: "Inbox cho tớ đi nào !!!",
+  text15: "Heaven help the fool who fall in love <3",
   text16: "Đời tớ là đời buồn ! Nổi buồn nhiều hơn niềm vui. " +
       "Vây quanh tớ là sự cô độc. Hạnh phúc đối với tớ là " +
       "điều xa xỉ nên tớ chẳng dám mong cầu hay hi vọng mình " +
@@ -66,11 +66,7 @@ $(document).ready(function () {
       confirmButtonClass: "confirm-text",
       cancelButtonColor: "#f6cd61",
       confirmButtonText: textConfig.text15,
-    }).then((result) => {
-      if (result.value) {
-          window.location = "https://fb.com/tranhieu1609";
-      }
-    });
+    })
   });
 
   function firstQuestion() {
