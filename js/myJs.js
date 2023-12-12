@@ -5,15 +5,28 @@ const textConfig = {
   text4: "Nếu cậu ko trả lời mà thoát ra tức là muốn làm vợ tớ rùi đó nha :3",
   text5: "Cậu mơ à???",
   text6: "Yêu ơi là yêuuuuuu <3",
-  text7: "Cậu nói lí do cậu thích tớ đi hehe",
+  text7: "Cậu nói lí do cậu yêu tớ đi hehe",
   text8: "Gửi cho tớ nào <3",
-  text9: "Vì Hiếu đẹp try vlllll luôn á !!!!",
+  text9: "Vì Hiếu đẹp try vlllll luôn ý !!!!",
   text10: "Tớ biết mà ^^ Yêu cậu 300.000",
-  text11:
-    "Bây giờ thì chờ gì nữa mà ko inbox cho tớ đi nàooo",
+  text11: "Bây giờ thì chờ gì nữa mà ko inbox cho tớ đi nàooo",
   text12: "Okii lunn <3",
-  text13: "Bấm vào để đọc thư nhé !!!",
-  text14: "Nghĩ sao tớ cho cậu để trống =))",
+  text13: "Không mơ được thì bấm vào đây =))",
+  text14: "Tớ có điều muốn nói !",
+  text15: "Inbox cho tớ đi nào !!!",
+  text16: "Đời tớ là đời buồn ! Nổi buồn nhiều hơn niềm vui. " +
+      "Vây quanh tớ là sự cô độc. Hạnh phúc đối với tớ là " +
+      "điều xa xỉ nên tớ chẳng dám mong cầu hay hi vọng mình " +
+      "sẽ có được một tình yêu đẹp. Nhưng ... \"từ khi gặp cậu" +
+      " tớ thấy cuộc sống vui nhiều, cứ cười tủm tìm từ sáng " +
+      "cho đến chiều\".\n" +
+      "Cậu đến như một món quà bất ngờ không có sự chuẩn bị trước. " +
+      "Tớ cũng không ngờ được tình cảm của tớ xuất phát đột " +
+      "ngột như vậy. Nếu giờ cậu hỏi tớ, vì sao tớ yêu cậu ? " +
+      "Tớ không biết phải trả lời như thế nào ... vì trong khoảnh " +
+      "khắc nào đó, tớ nhận ra mình đang nhớ cậu. Có lẽ tớ nhận ra " +
+      "mình yêu cậu từ lúc đấy và lý do thì chắc đơn giản là ... tớ " +
+      "yêu cậu. Cậu có thể nhắn tin cho tớ bất cứ khi nào cậu muốn.",
 };
 
 $(document).ready(function () {
@@ -31,7 +44,34 @@ $(document).ready(function () {
   $("#text4").html(textConfig.text4);
   $("#no").html(textConfig.text5);
   $("#yes").html(textConfig.text6);
-  $("#letter").html(textConfig.text13);
+  const buttonLetter = $("#letter");
+  buttonLetter.html(textConfig.text13);
+  buttonLetter.css('background-color', '#F7B3CD');
+  buttonLetter.click(function () {
+    Swal.fire({
+      title: textConfig.text14,
+      width: 900,
+      padding: "3em",
+      html: textConfig.text16,
+      background: '#fff url("img/iput-bg.jpg") ',
+      backdrop: `
+                    rgba(0,0,123,0.4)
+                    left top
+                    no-repeat
+                  `,
+      showCancelButton: false,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonColor: "#fe8a71",
+      confirmButtonClass: "confirm-text",
+      cancelButtonColor: "#f6cd61",
+      confirmButtonText: textConfig.text15,
+    }).then((result) => {
+      if (result.value) {
+          window.location = "https://fb.com/tranhieu1609";
+      }
+    });
+  });
 
   function firstQuestion() {
     $(".content").hide();
